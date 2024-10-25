@@ -1,0 +1,44 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<br></br>
+
+<div class="row">
+    <div class="col-8 offset-2">
+<body>
+    <h3>Edit your listing</h3>
+   <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+    
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input value="<%=listing.title%>" name="listing[title]" type="text" class="form-control" required/>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" class="form-control"><%=listing.description%></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input placeholder="Enter image url" value="<%=listing.image.url%>" name="listing[image.url]" class="form-control" type="text" required/>
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input placeholder="Enter price" type="number" value="<%=listing.price%>" class="form-control" name="listing[price]" required/>
+        </div>
+    
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input placeholder="Enter country" value="<%=listing.country%>" name="listing[country]" class="form-control" type="text" required/>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input placeholder="Enter location" type="text" value="<%=listing.location%>" class="form-control" name="listing[location]" required/>
+    </div>
+    
+   
+   <button class="btn btn-dark edit-btn">Edit</button>
+   </form> 
+</body>
+</div>
+</div>
+
